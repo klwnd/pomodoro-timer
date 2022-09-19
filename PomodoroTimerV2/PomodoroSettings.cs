@@ -15,9 +15,10 @@ namespace PomodoroTimerV2
         public PomodoroSettings()
         {
             InitializeComponent();
-            lblSetTimeFocus.Text = Form1.Instance.FocusMinutes.ToString();
-            lblSetTimeBreak.Text = Form1.Instance.BreakMinutes.ToString();
         }
+
+        public SetTimerValue SetWorkTime;
+        public SetTimerValue SetBreakTime;
 
         private void btnChangeTime(object sender, EventArgs e)
         {
@@ -25,25 +26,19 @@ namespace PomodoroTimerV2
 
             if (button.Name == "btnAddTimeFocus")
             {
-                Form1.Instance.FocusMinutes++;
-                Form1.Instance.ResetTime();
-                lblSetTimeFocus.Text = Form1.Instance.FocusMinutes.ToString();
+                SetWorkTime(1);  
             }
             else if (button.Name == "btnMinusTimeFocus")
             {
-                Form1.Instance.FocusMinutes--;
-                Form1.Instance.ResetTime();
-                lblSetTimeFocus.Text = Form1.Instance.FocusMinutes.ToString();
+                SetWorkTime(-1);
             }
             else if (button.Name == "btnAddTimeBreak")
             {
-                Form1.Instance.BreakMinutes++;
-                lblSetTimeBreak.Text = Form1.Instance.BreakMinutes.ToString();
+                SetBreakTime(1);
             }
             else if (button.Name == "btnMinusTimeBreak")
             {
-                Form1.Instance.BreakMinutes--;
-                lblSetTimeBreak.Text = Form1.Instance.BreakMinutes.ToString();
+                SetBreakTime(-1);
             }
         }
     }

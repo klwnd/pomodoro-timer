@@ -110,9 +110,22 @@ namespace PomodoroTimerV2
 
         private void btnSettingsClick(object sender, EventArgs e)
         {
-            PomodoroSettings Settings = new PomodoroSettings();
+            PomodoroSettings SettingsForm = new PomodoroSettings();
+            SettingsForm.SetWorkTime = new SetTimerValue(ChangeWorkTime);
+            SettingsForm.SetBreakTime = new SetTimerValue(ChangeBreakTime);
+            SettingsForm.Show();
+        }
 
-            Settings.Show();
+        private void ChangeWorkTime(int value)
+        {
+            FocusMinutes += value;
+            ResetTime();
+        }
+
+        private void ChangeBreakTime(int value)
+        {
+            BreakMinutes += value;
+            ResetTime();
         }
     }
 }
