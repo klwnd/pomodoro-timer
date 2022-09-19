@@ -13,7 +13,7 @@ namespace PomodoroTimerV2
         {
             InitializeComponent();
 
-            FocusMinutes = 30;
+            FocusMinutes = 30;s
             BreakMinutes = 1;
             CurrentSession = 1;
             State = PomodoroState.Focus;
