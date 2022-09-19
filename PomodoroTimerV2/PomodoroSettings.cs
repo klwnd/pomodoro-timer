@@ -41,5 +41,11 @@ namespace PomodoroTimerV2
                 SetBreakTime(-1);
             }
         }
+
+        public void UpdateLblTime(int focusTime, int breakTime)
+        {
+            lblSetTimeFocus.Text = focusTime.ToString();
+            lblSetTimeBreak.Text = breakTime.ToString();
+        }
     }
 }

@@ -23,6 +23,8 @@ namespace PomodoroTimerV2
             Instance = this;
         }
 
+        public GetTimerValue UpdateInSettings;
+
         public int FocusMinutes { get; set; }
         public int BreakMinutes { get; set; }
         TimeOnly Time;
@@ -92,13 +94,13 @@ namespace PomodoroTimerV2
             {
                 case PomodoroState.Focus:
                     State = PomodoroState.Break;
-                    Time = new TimeOnly(0, BreakMinutes, 5);
+                    Time = new TimeOnly(0, BreakMinutes, 0);
                     lblTime.Text = Time.ToString("mm:ss");
                     lblPomodoroStatus.Text = "BREAK";
                     break;
                 case PomodoroState.Break:
                     State = PomodoroState.Focus;
-                    Time = new TimeOnly(0, FocusMinutes, 10);
+                    Time = new TimeOnly(0, FocusMinutes, 0);
                     lblTime.Text = Time.ToString("mm:ss");
                     lblPomodoroStatus.Text = "FOCUS";
                     CurrentSession++;
@@ -113,19 +115,23 @@ namespace PomodoroTimerV2
             PomodoroSettings SettingsForm = new PomodoroSettings();
             SettingsForm.SetWorkTime = new SetTimerValue(ChangeWorkTime);
             SettingsForm.SetBreakTime = new SetTimerValue(ChangeBreakTime);
+            UpdateInSettings += new GetTimerValue(SettingsForm.UpdateLblTime);
             SettingsForm.Show();
+            UpdateInSettings(FocusMinutes, BreakMinutes);
         }
 
         private void ChangeWorkTime(int value)
         {
             FocusMinutes += value;
             ResetTime();
+            UpdateInSettings(FocusMinutes, BreakMinutes);
         }
 
         private void ChangeBreakTime(int value)
         {
             BreakMinutes += value;
             ResetTime();
+            UpdateInSettings(FocusMinutes, BreakMinutes);
         }
     }
 }
