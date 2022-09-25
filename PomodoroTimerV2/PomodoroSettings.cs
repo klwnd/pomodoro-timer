@@ -12,40 +12,62 @@ namespace PomodoroTimerV2
 {
     public partial class PomodoroSettings : Form
     {
-        public PomodoroSettings()
+        public PomodoroSettings(int focusTime, int breakTime)
         {
             InitializeComponent();
+            FocusTime = focusTime;
+            BreakTime = breakTime;
         }
 
-        public SetTimerValue SetWorkTime;
-        public SetTimerValue SetBreakTime;
+        public event EventHandler<EventArgs> TimeChanged;
+        private int _focusTime;
+        private int _breakTime;
+
+        public int FocusTime
+        {
+            get { return _focusTime; }
+
+            set
+            {
+                if (value > 0)
+                {
+                    _focusTime = value;
+                    lblFocusTime.Text = value.ToString();
+                }
+            }
+        }
+
+        public int BreakTime
+        {
+            get { return _breakTime; }
+
+            set
+            {
+               if (value > 0)
+                {
+                    _breakTime = value;
+                    lblBreakTime.Text = value.ToString();
+                }
+            }
+        }
 
         private void btnChangeTime(object sender, EventArgs e)
         {
-            var button = sender as Button;
+            var button = (Button)sender;
 
-            if (button.Name == "btnAddTimeFocus")
-            {
-                SetWorkTime(1);  
-            }
-            else if (button.Name == "btnMinusTimeFocus")
-            {
-                SetWorkTime(-1);
-            }
-            else if (button.Name == "btnAddTimeBreak")
-            {
-                SetBreakTime(1);
-            }
-            else if (button.Name == "btnMinusTimeBreak")
-            {
-                SetBreakTime(-1);
-            }
+            if (button.Name == "btnAddTimeFocus") FocusTime++;
+            else if (button.Name == "btnMinusTimeFocus") FocusTime--;
+            else if (button.Name == "btnAddTimeBreak") BreakTime++;
+            else if (button.Name == "btnMinusTimeBreak") BreakTime--;
+
+            OnChangeSettingsTime(null);
         }
 
-        public void UpdateLblTime(int focusTime, int breakTime)
+        private void OnChangeSettingsTime(EventArgs args)
         {
-            lblSetTimeFocus.Text = focusTime.ToString();
-            lblSetTimeBreak.Text = breakTime.ToString();
+            TimeChanged(this, args);
         }
+
+       
     }
 }

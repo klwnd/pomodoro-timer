@@ -20,18 +20,15 @@ namespace PomodoroTimerV2
             Time = new TimeOnly(0, FocusMinutes, 0);
             lblTime.Text = Time.ToString("mm:ss");
             IsActive = false;
-            Instance = this;
         }
 
-        public GetTimerValue UpdateInSettings;
-
-        public int FocusMinutes { get; set; }
-        public int BreakMinutes { get; set; }
-        TimeOnly Time;
-        public int CurrentSession { get; set; }
-        PomodoroState State;
-        public bool IsActive { get; set; }
-        public static Form1 Instance;
+        private int FocusMinutes { get; set; }
+        private int BreakMinutes { get; set; }
+        private TimeOnly Time { get; set; }
+        private int CurrentSession { get; set; }
+        private PomodoroState State { get; set; }
+        private bool IsActive { get; set; }
+        private PomodoroSettings SettingsForm { get; set; }
 
 
         private void btnPauseClick(object sender, EventArgs e)
@@ -72,23 +69,23 @@ namespace PomodoroTimerV2
             }
         }
 
-
-        void UpdateTime()
+        private void UpdateTime()
         {
             Time = Time.Add(new TimeSpan(0, 0, -1));
             lblTime.Text = Time.ToString("mm:ss");
         }
 
-        public void ResetTime()
+        private void ResetTime()
         {
             pomodoroTimer.Enabled=false;
             IsActive = false;
             Time = new TimeOnly(0, FocusMinutes, 0);
             lblTime.Text = Time.ToString("mm:ss");
             lblPomodoroStatus.Text = "POMODORO TIMER";
+            lblTimerStatus.Text = "Minutes Left";
         }
 
-        void ChangeState()
+        private void ChangeState()
         {
             switch (State)
             {
@@ -112,26 +109,21 @@ namespace PomodoroTimerV2
 
         private void btnSettingsClick(object sender, EventArgs e)
         {
-            PomodoroSettings SettingsForm = new PomodoroSettings();
-            SettingsForm.SetWorkTime = new SetTimerValue(ChangeWorkTime);
-            SettingsForm.SetBreakTime = new SetTimerValue(ChangeBreakTime);
-            UpdateInSettings += new GetTimerValue(SettingsForm.UpdateLblTime);
+            SettingsForm = new PomodoroSettings(FocusMinutes, BreakMinutes);
+            SettingsForm.TimeChanged += UpdateFocusAndBreakTime;
             SettingsForm.Show();
-            UpdateInSettings(FocusMinutes, BreakMinutes);
+            SettingsForm.FormClosed += (object sender, FormClosedEventArgs e) => btnSettings.Enabled = true;
+
+            btnSettings.Enabled = false;
         }
 
-        private void ChangeWorkTime(int value)
+        private void UpdateFocusAndBreakTime(object sender, EventArgs e)
         {
-            FocusMinutes += value;
+            var settingsForm = sender as PomodoroSettings;
+            FocusMinutes = settingsForm.FocusTime;
+            BreakMinutes = settingsForm.BreakTime;
             ResetTime();
-            UpdateInSettings(FocusMinutes, BreakMinutes);
-        }
-
-        private void ChangeBreakTime(int value)
-        {
-            BreakMinutes += value;
-            ResetTime();
-            UpdateInSettings(FocusMinutes, BreakMinutes);
+            lblStateDebug.Text = BreakMinutes.ToString();
         }
     }
 }
