@@ -39,7 +39,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.lblStateDebug = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // lblTime
@@ -163,19 +162,11 @@
             // lblStateDebug
             // 
             this.lblStateDebug.AutoSize = true;
-            this.lblStateDebug.Location = new System.Drawing.Point(12, 9);
+            this.lblStateDebug.Location = new System.Drawing.Point(27, 463);
             this.lblStateDebug.Name = "lblStateDebug";
             this.lblStateDebug.Size = new System.Drawing.Size(42, 15);
             this.lblStateDebug.TabIndex = 8;
             this.lblStateDebug.Text = "Debug";
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(61, 235);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(211, 23);
-            this.progressBar1.TabIndex = 9;
-            this.progressBar1.Value = 25;
             // 
             // Form1
             // 
@@ -183,7 +174,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
             this.ClientSize = new System.Drawing.Size(321, 487);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.lblStateDebug);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.button2);
@@ -213,6 +203,5 @@
         private Button button2;
         private Button btnSettings;
         private Label lblStateDebug;
-        private ProgressBar progressBar1;
     }
 }
