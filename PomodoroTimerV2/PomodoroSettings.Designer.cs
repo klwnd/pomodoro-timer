@@ -168,6 +168,7 @@
             this.MaximumSize = new System.Drawing.Size(421, 279);
             this.MinimumSize = new System.Drawing.Size(421, 279);
             this.Name = "PomodoroSettings";
+            this.ShowIcon = false;
             this.Text = "Time Settings";
             this.ResumeLayout(false);
 

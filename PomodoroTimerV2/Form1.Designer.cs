@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pomodoroTimer = new System.Windows.Forms.Timer(this.components);
             this.lblStateDebug = new System.Windows.Forms.Label();
             this.buttonStart = new System.Windows.Forms.Button();
@@ -204,6 +205,9 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ButtonPause);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(337, 526);
             this.MinimumSize = new System.Drawing.Size(337, 526);
             this.Name = "Form1";
             this.Text = "Do your Job!";
