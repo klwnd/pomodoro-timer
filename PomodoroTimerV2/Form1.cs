@@ -45,7 +45,7 @@ namespace PomodoroTimerV2
             pomodoroTimer.Enabled = true;
             lblTimerStatus.Text = "Minutes Left";
             IsActive = true;
-            lblStateDebug.Text = $"Session: {CurrentSession}";
+            lblSession.Text = $"Session: {CurrentSession}";
 
             if (State == PomodoroState.Focus) lblPomodoroStatus.Text = "FOCUS";
             if (State == PomodoroState.Break) lblPomodoroStatus.Text = "BREAK";
