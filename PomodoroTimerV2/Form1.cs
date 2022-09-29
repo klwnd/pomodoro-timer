@@ -123,7 +123,6 @@ namespace PomodoroTimerV2
             FocusMinutes = settingsForm.FocusTime;
             BreakMinutes = settingsForm.BreakTime;
             ResetTime();
-            lblStateDebug.Text = BreakMinutes.ToString();
         }
     }
 }
