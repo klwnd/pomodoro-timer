@@ -124,5 +124,10 @@ namespace PomodoroTimerV2
             BreakMinutes = settingsForm.BreakTime;
             ResetTime();
         }
+
+        private void btnFocusClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }

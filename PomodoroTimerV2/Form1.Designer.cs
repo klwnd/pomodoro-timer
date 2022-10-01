@@ -178,6 +178,7 @@
             this.lblPomodoroStatus.TabIndex = 4;
             this.lblPomodoroStatus.Text = "POMODORO TIMER";
             this.lblPomodoroStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPomodoroStatus.Click += new System.EventHandler(this.btnFocusClick);
             // 
             // panel1
             // 
