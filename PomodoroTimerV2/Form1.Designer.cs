@@ -32,13 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pomodoroTimer = new System.Windows.Forms.Timer(this.components);
             this.lblStateDebug = new System.Windows.Forms.Label();
-            this.buttonStart = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
             this.lblSession = new System.Windows.Forms.Label();
-            this.ButtonPause = new System.Windows.Forms.Button();
+            this.btnPause = new System.Windows.Forms.Button();
             this.lblTime = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnFocus = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.lblTimerStatus = new System.Windows.Forms.Label();
             this.lblPomodoroStatus = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -60,20 +60,20 @@
             this.lblStateDebug.Text = "Debug";
             this.lblStateDebug.Visible = false;
             // 
-            // buttonStart
+            // btnStart
             // 
-            this.buttonStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.buttonStart.FlatAppearance.BorderSize = 0;
-            this.buttonStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonStart.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonStart.ForeColor = System.Drawing.Color.White;
-            this.buttonStart.Location = new System.Drawing.Point(121, 343);
-            this.buttonStart.Name = "buttonStart";
-            this.buttonStart.Size = new System.Drawing.Size(80, 51);
-            this.buttonStart.TabIndex = 1;
-            this.buttonStart.Text = "Start";
-            this.buttonStart.UseVisualStyleBackColor = false;
-            this.buttonStart.Click += new System.EventHandler(this.btnStartClick);
+            this.btnStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.btnStart.FlatAppearance.BorderSize = 0;
+            this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStart.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnStart.ForeColor = System.Drawing.Color.White;
+            this.btnStart.Location = new System.Drawing.Point(121, 343);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(80, 51);
+            this.btnStart.TabIndex = 1;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.btnStartClick);
             // 
             // lblSession
             // 
@@ -86,20 +86,20 @@
             this.lblSession.Text = "Session: 1";
             this.lblSession.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ButtonPause
+            // btnPause
             // 
-            this.ButtonPause.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.ButtonPause.FlatAppearance.BorderSize = 0;
-            this.ButtonPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonPause.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.ButtonPause.ForeColor = System.Drawing.Color.White;
-            this.ButtonPause.Location = new System.Drawing.Point(15, 343);
-            this.ButtonPause.Name = "ButtonPause";
-            this.ButtonPause.Size = new System.Drawing.Size(80, 51);
-            this.ButtonPause.TabIndex = 3;
-            this.ButtonPause.Text = "Pause";
-            this.ButtonPause.UseVisualStyleBackColor = false;
-            this.ButtonPause.Click += new System.EventHandler(this.btnPauseClick);
+            this.btnPause.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.btnPause.FlatAppearance.BorderSize = 0;
+            this.btnPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPause.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPause.ForeColor = System.Drawing.Color.White;
+            this.btnPause.Location = new System.Drawing.Point(15, 343);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(80, 51);
+            this.btnPause.TabIndex = 3;
+            this.btnPause.Text = "Pause";
+            this.btnPause.UseVisualStyleBackColor = false;
+            this.btnPause.Click += new System.EventHandler(this.btnPauseClick);
             // 
             // lblTime
             // 
@@ -112,19 +112,20 @@
             this.lblTime.Text = "05:45";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // btnFocus
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(229, 343);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 51);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Focus";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnFocus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.btnFocus.FlatAppearance.BorderSize = 0;
+            this.btnFocus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFocus.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnFocus.ForeColor = System.Drawing.Color.White;
+            this.btnFocus.Location = new System.Drawing.Point(229, 343);
+            this.btnFocus.Name = "btnFocus";
+            this.btnFocus.Size = new System.Drawing.Size(80, 51);
+            this.btnFocus.TabIndex = 5;
+            this.btnFocus.Text = "Focus";
+            this.btnFocus.UseVisualStyleBackColor = false;
+            this.btnFocus.Click += new System.EventHandler(this.btnFocusClick);
             // 
             // btnSettings
             // 
@@ -141,20 +142,20 @@
             this.btnSettings.UseVisualStyleBackColor = false;
             this.btnSettings.Click += new System.EventHandler(this.btnSettingsClick);
             // 
-            // button2
+            // btnReset
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(15, 422);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(135, 51);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Reset";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.btnResetClick);
+            this.btnReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.btnReset.FlatAppearance.BorderSize = 0;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnReset.ForeColor = System.Drawing.Color.White;
+            this.btnReset.Location = new System.Drawing.Point(15, 422);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(135, 51);
+            this.btnReset.TabIndex = 6;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnResetClick);
             // 
             // lblTimerStatus
             // 
@@ -200,11 +201,11 @@
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblSession);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnSettings);
-            this.Controls.Add(this.buttonStart);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.ButtonPause);
+            this.Controls.Add(this.btnStart);
+            this.Controls.Add(this.btnFocus);
+            this.Controls.Add(this.btnPause);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -221,13 +222,13 @@
         #endregion
         private System.Windows.Forms.Timer pomodoroTimer;
         private Label lblStateDebug;
-        private Button buttonStart;
+        private Button btnStart;
         private Label lblSession;
-        private Button ButtonPause;
+        private Button btnPause;
         private Label lblTime;
-        private Button button1;
+        private Button btnFocus;
         private Button btnSettings;
-        private Button button2;
+        private Button btnReset;
         private Label lblTimerStatus;
         private Label lblPomodoroStatus;
         private Panel panel1;
