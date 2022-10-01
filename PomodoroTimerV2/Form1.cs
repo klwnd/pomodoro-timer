@@ -29,6 +29,7 @@ namespace PomodoroTimerV2
         private PomodoroState State { get; set; }
         private bool IsActive { get; set; }
         private PomodoroSettings SettingsForm { get; set; }
+        private bool IsFocusStyle = false;
 
 
         private void btnPauseClick(object sender, EventArgs e)
@@ -127,7 +128,27 @@ namespace PomodoroTimerV2
 
         private void btnFocusClick(object sender, EventArgs e)
         {
+            if (!IsFocusStyle && IsActive)
+            {
+                ChangeControlVisibleOnFocus(false);
+                btnFocus.Location = new Point(121, 343);
+                IsFocusStyle = true;
+            }
+            else
+            {
+                ChangeControlVisibleOnFocus(true);
+                btnFocus.Location = new Point(229, 343);
+                IsFocusStyle = false;
+            }
+        }
 
+        private void ChangeControlVisibleOnFocus(bool value)
+        {
+            btnPause.Visible = value;
+            btnStart.Visible = value;
+            btnReset.Visible = value;
+            btnSettings.Visible = value;
+            lblPomodoroStatus.Visible = value;
         }
     }
 }
